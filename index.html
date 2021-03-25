@@ -1,61 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GIT comand</title>
+    <link rel="stylesheet" href="CSS/styles.css">
 </head>
 
 <body>
-    <header class="header">
-        <div class="container">
-            <div class="row">
-                <nav class="nav">
-
-                </nav>
-                <h1 class="title">Шпаргалка по консольным командам Git</h1>
-
-            </div>
-        </div>
-    </header>
-    <main class="main">
-        <div class="container">
-            <div class="content">
-                <h3 class="content__title">Общее</h3>
-                <div class="content__text">
-                    <p class="content__text-part">Git — система контроля версий (файлов). Что-то вроде возможности сохраняться в компьютерных играх (в Git эквивалент игрового сохранения — коммит). Важно: добавление файлов к «сохранению» двухступенчатое: сначала добавляем файл в индекс
-                        (
-                        <code class="text-part__code">git add</code>), потом «сохраняем» (<code class="text-part__code">git commit</code>).</p>
-                    <p class="content__text-part">Любой файл в директории существующего репозитория может находиться или не находиться под версионным контролем (отслеживаемые (tracked) и неотслеживаемые (untracked)).</p>
-                    <p class="content__text-part">Отслеживаемые файлы могут быть в 3-х состояниях: неизменённые (unmodified), изменённые (modified), проиндексированные (indexed) - готовые к коммиту.</p>
+    <div class="container">
+        <header class="header">
+            <div class="container">
+                <div class="row">
+                    <nav class="nav">
+                        <a class="search__link" href="#general">Общее</a>
+                        <a class="search__link" href="#key">Ключ к пониманию</a>
+                        <a class="search__link" href="#cicle">Простейший цикл работ</a>
+                    </nav>
+                    <h1 class="title">Шпаргалка по консольным командам Git</h1>
                 </div>
-                <h3 class="content__title">Ключ к пониманию</h3>
-                <div class="content__text">
-                    <p class="content__text-part">
-                        Ключ к пониманию концепции git — знание о «трех деревьях»:
+            </div>
+        </header>
+        <main class="main">
+            <div class="container">
+                <div class="content">
+                    <h3 class="content__title" id="general">Общее</h3>
+                    <div class="content__text">
+                        <p class="content__text-part">Git — система контроля версий (файлов). Что-то вроде возможности сохраняться в компьютерных играх (в Git эквивалент игрового сохранения — коммит). Важно: добавление файлов к «сохранению» двухступенчатое: сначала добавляем файл
+                            в индекс (
+                            <code class="text-part__code">git add</code>), потом «сохраняем» (<code class="text-part__code">git commit</code>).</p>
+                        <p class="content__text-part">Любой файл в директории существующего репозитория может находиться или не находиться под версионным контролем (отслеживаемые (tracked) и неотслеживаемые (untracked)).</p>
+                        <p class="content__text-part">Отслеживаемые файлы могут быть в 3-х состояниях: неизменённые (unmodified), изменённые (modified), проиндексированные (indexed) - готовые к коммиту.</p>
+                    </div>
+                    <h3 class="content__title" id="key">Ключ к пониманию</h3>
+                    <div class="content__text">
+                        <p class="content__text-part">
+                            Ключ к пониманию концепции git — знание о «трех деревьях»:
+                            <ol class="text-part__list">
+                                <li class="list__item">Рабочая директория — файловая система проекта (те файлы, с которыми вы работаете).</li>
+                                <li class="list__item">Индекс — список отслеживаемых git-ом файлов и директорий, промежуточное хранилище изменений (редактирование, удаление отслеживаемых файлов).</li>
+                                <li class="list__item">Директория <code class="text-part__code">.git/</code> — все данные контроля версий этого проекта (вся история разработки: коммиты, ветки, теги и пр.).</li>
+                            </ol>
+                        </p>
+                        <p class="content__text-part">Коммит — «сохранение» (хранит набор изменений, сделанный в рабочей директории с момента предыдущего коммита). Коммит неизменен, его нельзя отредактировать.</p>
+                        <p class="content__text-part">У всех коммитов (кроме самого первого) есть один или более родительских коммитов, поскольку коммиты хранят изменения от предыдущих состояний.</p>
+                    </div>
+                    <h3 class="content__title" id="cicle">Простейший цикл работ</h3>
+                    <div class="content__text">
                         <ol class="text-part__list">
-                            <li class="list__item">Рабочая директория — файловая система проекта (те файлы, с которыми вы работаете).</li>
-                            <li class="list__item">Индекс — список отслеживаемых git-ом файлов и директорий, промежуточное хранилище изменений (редактирование, удаление отслеживаемых файлов).</li>
-                            <li class="list__item">Директория <code class="text-part__code">.git/</code> — все данные контроля версий этого проекта (вся история разработки: коммиты, ветки, теги и пр.).</li>
+                            <li class="list__item">Редактирование, добавление, удаление файлов (собственно, работа).</li>
+                            <li class="list__item">Индексация/добавление файлов в индекс (указание для git какие изменения нужно будет закоммитить).</li>
+                            <li class="list__item">Коммит (фиксация изменений).</li>
+                            <li class="list__item">Возврат к шагу 1 или отход ко сну.</li>
                         </ol>
-                    </p>
-                    <p class="content__text-part">Коммит — «сохранение» (хранит набор изменений, сделанный в рабочей директории с момента предыдущего коммита). Коммит неизменен, его нельзя отредактировать.</p>
-                    <p class="content__text-part">У всех коммитов (кроме самого первого) есть один или более родительских коммитов, поскольку коммиты хранят изменения от предыдущих состояний.</p>
-                </div>
-                <h3 class="content__title">Простейший цикл работ</h3>
-                <div class="content__text">
-                    <ol class="text-part__list">
-                        <li class="list__item">Редактирование, добавление, удаление файлов (собственно, работа).</li>
-                        <li class="list__item">Индексация/добавление файлов в индекс (указание для git какие изменения нужно будет закоммитить).</li>
-                        <li class="list__item">Коммит (фиксация изменений).</li>
-                        <li class="list__item">Возврат к шагу 1 или отход ко сну.</li>
-                    </ol>
+                    </div>
                 </div>
             </div>
-        </div>
-    </main>
+        </main>
+    </div>
 </body>
 
 </html>
